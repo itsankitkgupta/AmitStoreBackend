@@ -13,11 +13,11 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
   });
-app.use(cors({
-    origin : "http://localhost:3000/",
-    // optionsSuccessStatus: 200,
-    credentials : true
-}))
+// app.use(cors({
+//     origin : "http://localhost:3000/",
+//     // optionsSuccessStatus: 200,
+//     credentials : true
+// }))
 app.use(cors({
     origin: '*',
     credentials: true
@@ -34,7 +34,7 @@ app.use(cors({
 //     credentials: true, // Allow credentials
 //   };
   
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(express.json())
 app.use(cookieParser())
 
