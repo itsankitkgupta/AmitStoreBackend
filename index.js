@@ -14,7 +14,7 @@ const app = express()
 //     next();
 //   });
 app.use(cors({
-    origin : "http://localhost:3000",
+    origin : "https://smartcart123.netlify.app/",
     // optionsSuccessStatus: 200,
     credentials : true
 }))
