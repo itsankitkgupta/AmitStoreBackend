@@ -8,7 +8,7 @@ async function userSignUpController(req,res){
 
         const user = await userModel.findOne({email})
 
-        console.log("Already Registered user",user)
+        // console.log("Already Registered user",user)
 
         if(user){
             throw new Error("Already user exits.")
