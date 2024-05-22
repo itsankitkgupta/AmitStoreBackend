@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken')
 
 async function authToken(req,res,next){
+    TOKEN_SECRET_KEY = "mynameisAnthonyGonzalves"
     try{
         const token = req.cookies?.token
-
         console.log("token",token)
         if(!token){
             return res.status(200).json({
@@ -13,7 +13,7 @@ async function authToken(req,res,next){
             })
         }
 
-        jwt.verify(token, process.env.TOKEN_SECRET_KEY, function(err, decoded) {
+        jwt.verify(token,TOKEN_SECRET_KEY, function(err, decoded) {
             console.log(err)
             console.log("decoded",decoded)
             
