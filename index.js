@@ -13,11 +13,28 @@ const app = express()
 //     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 //     next();
 //   });
-app.use(cors({
-    origin : "https://smartcart123.netlify.app/",
-    // optionsSuccessStatus: 200,
-    credentials : true
-}))
+// app.use(cors({
+//     origin : "http://localhost:3000/",
+//     // optionsSuccessStatus: 200,
+//     credentials : true
+// }))
+// app.use(cors({
+//     origin: '*',
+//     credentials: true
+//   }));
+const corsOptions = {
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin || origin.startsWith('http://localhost')) {
+        callback(null, true); // Allow the request
+      } else {
+        callback(new Error('Not allowed by CORS')); // Block the request
+      }
+    },
+    credentials: true, // Allow credentials
+  };
+  
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(cookieParser())
 
