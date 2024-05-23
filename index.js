@@ -10,8 +10,8 @@ const bodyParser = require('body-parser');
 const app = express()
 app.use(bodyParser.json({ limit: '50mb' }));
 
-// const allowedOrigins = ['https://smartcart1.netlify.app'];
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['https://smartcart1.netlify.app'];
+// const allowedOrigins = ['http://localhost:3000'];
 
 
 const corsOptions = {
