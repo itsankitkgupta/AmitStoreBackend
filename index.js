@@ -10,10 +10,13 @@ const bodyParser = require('body-parser');
 const app = express()
 app.use(bodyParser.json({ limit: '50mb' }));
 
-const allowedOrigins = ['http://localhost:3000/', 'https://smartcart1.netlify.app/'];
+const allowedOrigins = ['https://smartcart1.netlify.app'];
+// const allowedOrigins = ['http://localhost:3000'];
+
 
 const corsOptions = {
   origin: (origin, callback) => {
+    console.log('Origin:', origin); 
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -22,7 +25,7 @@ const corsOptions = {
   },
   credentials: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  // allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 app.use(cors(corsOptions));
